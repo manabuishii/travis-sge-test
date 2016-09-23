@@ -3,10 +3,6 @@ sudo: required
 services:
   - docker
 
-env:
-  - TOX_ENV=py27
-  - COMPOSE=True
-
 git:
   submodules: false
 
