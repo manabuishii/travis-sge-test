@@ -13,7 +13,7 @@ sleep 10
 echo "--- sgemaster cat /tmp/a.txt"
 docker exec sgemaster cat /tmp/a.txt
 echo "--- sgemaster cat /tmp/a.txt and grep"
-docker exec sgemaster cat /tmp/a.txt | grep sgeclient
+docker exec sgemaster cat /tmp/a.txt | grep sgemaster
 RET=$?
 echo "RET=[${RET}]"
 
