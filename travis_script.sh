@@ -10,7 +10,7 @@ docker exec sgemaster qconf -as sgeclient
 docker exec sgeclient bash -c "echo 'hostname ; date' | qsub -o /tmp/a.txt"
 # wait to finish job
 sleep 10
-docker exec sgemaster cat /tmp/a.txt | grep sgemaster
+docker exec sgemaster cat /tmp/a.txt | grep sgeclient
 RET=$?
 echo "RET=[${RET}]"
 
