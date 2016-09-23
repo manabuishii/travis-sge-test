@@ -6,13 +6,14 @@ sleep 10
 SGECLIENT=$(docker exec sgeclient cat /etc/hosts | grep sgeclient)
 docker exec sgemaster bash -c "echo ${SGECLIENT} >> /etc/hosts"
 docker exec sgemaster qconf -as sgeclient
-
+# throw job from sgeclient to sgemaster
 docker exec sgeclient bash -c "echo 'hostname ; date' | qsub -o /tmp/a.txt"
 # wait to finish job
 sleep 10
 echo "--- sgemaster cat /tmp/a.txt"
 docker exec sgemaster cat /tmp/a.txt
 echo "--- sgemaster cat /tmp/a.txt and grep"
+# expect is sgemaster
 docker exec sgemaster cat /tmp/a.txt | grep sgemaster
 RET=$?
 echo "RET=[${RET}]"
